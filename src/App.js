@@ -3,6 +3,7 @@ import "./App.css";
 import HelloWorldComponent from "./Components/HelloWorldComponent";
 import Greeting from "./Pages/Greeting";
 import CounterComponent from "./Components/CounterComponent";
+import ItemList from "./Pages/ItemList";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
 
       <h2>Exercice 3 : Utilisation de UseState</h2>
       <CounterComponent />
+
+      <h2>Exercice 4 : Utilisation des Listes et clé</h2>
+      <ItemList />
     </div>
   );
 }
