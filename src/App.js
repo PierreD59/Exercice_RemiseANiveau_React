@@ -4,6 +4,7 @@ import HelloWorldComponent from "./Components/HelloWorldComponent";
 import Greeting from "./Pages/Greeting";
 import CounterComponent from "./Components/CounterComponent";
 import ItemList from "./Pages/ItemList";
+import LoginFormComponent from "./Components/LoginFormComponent";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
 
       <h2>Exercice 4 : Utilisation des Listes et clé</h2>
       <ItemList />
+
+      <h2>Exercice 5 : Utilisation des formulaires</h2>
+      <LoginFormComponent />
     </div>
   );
 }
