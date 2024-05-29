@@ -1,10 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
-import HelloWorldComponent from "./Components/HelloWorldComponent";
-import Greeting from "./Pages/Greeting";
-import CounterComponent from "./Components/CounterComponent";
-import ItemList from "./Pages/ItemList";
-import LoginFormComponent from "./Components/LoginFormComponent";
+import HelloWorldComponent from "./components/HelloWorldComponent";
+import Greeting from "./pages/Greeting";
+import CounterComponent from "./components/CounterComponent";
+import ItemList from "./pages/ItemList";
+import LoginFormComponent from "./components/LoginFormComponent";
+import DataFruitComponent from "./components/DataFruitComponent";
 
 function App() {
   return (
@@ -25,6 +25,9 @@ function App() {
 
       <h2>Exercice 5 : Utilisation des formulaires</h2>
       <LoginFormComponent />
+
+      <h2>Exercice 6 : Utilisation des API</h2>
+      <DataFruitComponent />
     </div>
   );
 }

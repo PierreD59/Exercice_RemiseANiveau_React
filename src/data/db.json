@@ -1,0 +1,28 @@
+{
+  "fruitsList": [
+    {
+      "id": "1",
+      "name": "Pomme"
+    },
+    {
+      "id": "2",
+      "name": "Fraise"
+    },
+    {
+      "id": "3",
+      "name": "Orange"
+    },
+    {
+      "id": "4",
+      "name": "Framboise"
+    },
+    {
+      "id": "5",
+      "name": "Banane"
+    },
+    {
+      "id": "6",
+      "name": "Kiwi"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import GreetingComponent from "../Components/GreetingComponent";
+import GreetingComponent from "../components/GreetingComponent";
 
 const Greeting = () => {
   <GreetingComponent name="John" />;

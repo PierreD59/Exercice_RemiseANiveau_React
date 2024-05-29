@@ -1,4 +1,4 @@
-import ItemListComponent from "../Components/ItemListComponent";
+import ItemListComponent from "../components/ItemListComponent";
 
 const ItemList = () => {
   const items = ["John", "Fitz", "Gerald", "Ken", "Eddy"];
