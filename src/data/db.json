@@ -24,5 +24,22 @@
       "id": "6",
       "name": "Kiwi"
     }
+  ],
+  "todoList": [
+    {
+      "id": 1,
+      "task": "Faire le ménage",
+      "status": false
+    },
+    {
+      "id": 2,
+      "task": "Faire la vaisselle",
+      "status": false
+    },
+    {
+      "id": 3,
+      "task": "Faire le repassage",
+      "status": true
+    }
   ]
 }

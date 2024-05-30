@@ -1,10 +1,11 @@
 import "./App.css";
-import HelloWorldComponent from "./components/HelloWorldComponent";
-import Greeting from "./pages/Greeting";
 import CounterComponent from "./components/CounterComponent";
+import Greeting from "./pages/Greeting";
+import HelloWorldComponent from "./components/HelloWorldComponent";
 import ItemList from "./pages/ItemList";
 import LoginFormComponent from "./components/LoginFormComponent";
 import DataFruitComponent from "./components/DataFruitComponent";
+import TodoListComponent from "./components/TodoListComponent";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
 
       <h2>Exercice 6 : Utilisation des API</h2>
       <DataFruitComponent />
+
+      <h2>Exercice 7 : Réalisation d'une todoList</h2>
+      <TodoListComponent />
     </div>
   );
 }

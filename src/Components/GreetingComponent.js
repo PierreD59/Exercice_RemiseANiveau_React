@@ -1,5 +1,5 @@
 const GreetingComponent = ({ name }) => {
-  <p>Bonjour, {name}</p>;
+  return <p>Bonjour, {name}</p>;
 };
 
 export default GreetingComponent;
