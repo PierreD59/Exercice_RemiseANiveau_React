@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { FaRegEdit } from "react-icons/fa";
+import { TiDelete } from "react-icons/ti";
 
 const TodoListComponent = () => {
   const JsonServer = "http://localhost:3004/todoList";
@@ -9,6 +11,7 @@ const TodoListComponent = () => {
     status: false,
   });
   const [nextId, setNextId] = useState(1);
+  const [editTaskId, setEditTaskId] = useState(null);
 
   useEffect(() => {
     fetch(JsonServer)
@@ -17,7 +20,7 @@ const TodoListComponent = () => {
         setTodolist(data);
         if (data.length > 0) {
           const maxId = Math.max(...data.map((todo) => todo.id));
-          setNextId(maxId + 1); // Mettre à jour nextId en fonction de l'ID le plus élevé
+          setNextId(maxId + 1);
         }
       })
       .catch((error) => this.error(error));
@@ -26,6 +29,7 @@ const TodoListComponent = () => {
   const showFormNewTask = () => {
     setShowForm(!showForm);
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewTask({
@@ -54,6 +58,49 @@ const TodoListComponent = () => {
       .catch((error) => console.error("Erreur:", error));
   };
 
+  const deleteTask = (id) => {
+    console.log(`Suppression de la tâche avec l'ID : ${id}`);
+    fetch(`http://localhost:3004/todoList/${id}`, {
+      method: "DELETE",
+      headers: { "content-type": "application/json" },
+    })
+      .then((response) => {
+        console.log("Réponse du serveur pour la suppression:", response);
+        if (response.ok) {
+          console.log("Tâche supprimée avec succès");
+          setTodolist(todolist.filter((todo) => todo.id !== id));
+        } else {
+          console.error("Erreur de suppression:", response.statusText);
+        }
+      })
+      .catch((error) => console.error("Erreur:", error));
+  };
+
+  const startEditTask = (task) => {
+    setEditTaskId(task.id);
+    setNewTask({ task: task.task, status: task.status });
+    setShowForm(true);
+  };
+
+  const editTask = (e) => {
+    e.preventDefault();
+    fetch(`http://localhost:3004/todoList/${editTaskId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...newTask, id: editTaskId }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setTodolist(
+          todolist.map((todo) => (todo.id === editTaskId ? data : todo))
+        );
+        setEditTaskId(null);
+        setNewTask({ task: "", status: false });
+        setShowForm(false);
+      })
+      .catch((error) => console.error("Erreur:", error));
+  };
+
   return (
     <>
       <div>
@@ -63,6 +110,8 @@ const TodoListComponent = () => {
             <th itemScope="col">Id</th>
             <th itemScope="col">Tâche</th>
             <th itemScope="col">Statut</th>
+            <th itemScope="col">Editer</th>
+            <th itemScope="col">Supprimer</th>
           </thead>
           <tbody>
             {todolist.map((todo) => {
@@ -72,6 +121,12 @@ const TodoListComponent = () => {
                   <td>{todo.task}</td>
                   <td>
                     {todo.status ? "Tâche réalisée" : "Tâche non réalisée"}
+                  </td>
+                  <td>
+                    <FaRegEdit onClick={() => startEditTask(todo)} />
+                  </td>
+                  <td>
+                    <TiDelete onClick={() => deleteTask(todo.id)} />
                   </td>
                 </tr>
               );
@@ -84,7 +139,7 @@ const TodoListComponent = () => {
         </button>
 
         {showForm && (
-          <form onSubmit={addNewTask}>
+          <form onSubmit={editTaskId !== null ? editTask : addNewTask}>
             <div>
               <label>
                 Tâche:
@@ -105,7 +160,11 @@ const TodoListComponent = () => {
               </label>
             </div>
 
-            <button type="submit">Ajouter une nouvelle tâche</button>
+            <button type="submit">
+              {editTaskId !== null
+                ? "Éditer la tâche"
+                : "Ajouter une nouvelle tâche"}
+            </button>
           </form>
         )}
       </div>

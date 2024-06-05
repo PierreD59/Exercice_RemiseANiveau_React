@@ -8,6 +8,7 @@ const LoginFormComponent = () => {
     event.preventDefault();
     alert(`Email : ${email}, Password : ${password}`);
   };
+
   return (
     <div>
       <form onSubmit={submit}>
