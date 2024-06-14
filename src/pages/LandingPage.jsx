@@ -1,15 +1,15 @@
-import Header from "../commons/header/header";
-
 const LandingPage = () => {
   return (
     <>
-      <Header />
-      <h1>Exercices React</h1>
-      <p>
-        Bienvenue sur la page d'accueil des exercices pour s'entrainer à React !
-        Pour m'entrainer à utiliser react, j'ai réalisé plusieurs petits
-        exercices.
-      </p>
+      <h1 className="title left bold">Présentation</h1>
+      <hr></hr>
+      <div className="presentBlock">
+        <p className="content">
+          Bonjour, je suis Pierre Dumont, je suis un Développeur Front-End
+          junior et bienvenue sur ma page gitHub. Ce repository me sert de
+          crashTest pour m'entrainer à utiliser le framework/library React.
+        </p>
+      </div>
     </>
   );
 };

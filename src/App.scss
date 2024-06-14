@@ -1,0 +1,29 @@
+@import "./assets/scss/variables.scss";
+@import "./assets/scss/resetCss.css";
+@import "./assets/scss/header.scss";
+@import "./assets/scss/footer.scss";
+@import "./assets/scss/fonts.scss";
+
+.App {
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url(../public/img/Background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  main {
+    flex-grow: 1;
+    margin: 100px;
+    hr {
+      width: 25%;
+      height: 3px;
+      background: $red;
+    }
+
+    .presentBlock {
+      background: $blue;
+      width: 25%;
+    }
+  }
+}

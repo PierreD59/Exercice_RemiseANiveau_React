@@ -1,0 +1,18 @@
+footer {
+  flex-grow: 0;
+  flex-shrink: 0;
+  background: $red;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 25px;
+
+  p {
+    display: flex;
+    align-items: center;
+    color: $light;
+    font: 14px $worksans;
+    font-weight: bold;
+    height: 100%;
+  }
+}

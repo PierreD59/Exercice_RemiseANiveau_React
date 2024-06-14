@@ -7,40 +7,47 @@ import UserList from "../pages/UserList";
 import Counter from "../pages/Counter";
 import EmailForm from "../pages/EmailForm";
 import LandingPage from "../pages/LandingPage";
+import Layout from "./Layout";
 
 const Router = () => {
   const routes = [
     {
       path: "/",
-      element: <LandingPage />,
-    },
-    {
-      path: "/helloworld",
-      element: <HellowWorld />,
-    },
-    {
-      path: "/greeting",
-      element: <Greeting />,
-    },
-    {
-      path: "/counter",
-      element: <Counter />,
-    },
-    {
-      path: "/userlist",
-      element: <UserList />,
-    },
-    {
-      path: "/emailform",
-      element: <EmailForm />,
-    },
-    {
-      path: "/fruitlist",
-      element: <FruitList />,
-    },
-    {
-      path: "/todolist",
-      element: <TodoList />,
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          element: <LandingPage />,
+        },
+        {
+          path: "/helloworld",
+          element: <HellowWorld />,
+        },
+        {
+          path: "/greeting",
+          element: <Greeting />,
+        },
+        {
+          path: "/counter",
+          element: <Counter />,
+        },
+        {
+          path: "/userlist",
+          element: <UserList />,
+        },
+        {
+          path: "/emailform",
+          element: <EmailForm />,
+        },
+        {
+          path: "/fruitlist",
+          element: <FruitList />,
+        },
+        {
+          path: "/todolist",
+          element: <TodoList />,
+        },
+      ],
     },
   ];
   return <>{useRoutes(routes)}</>;
